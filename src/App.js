@@ -1,19 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import TablaSecundaria from './components/Units';
 
 function App() {
   return (
     <div className="App">
-
-    <p>
-      Hola mundo, somos script this
-    </p>
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>
-    <div>4</div>
-
-
+        <TablaSecundaria item='Unidades' endPoint='unidad'/>
     </div>
   );
 }
