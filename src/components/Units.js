@@ -2,9 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {Link} from 'react-router-dom'
 import { FetchingDatos } from '../js/FetchingDatos'
 
-const TablaSecundaria = ({item,endPoint, llave}) => {
-  let keyItem='type'; 
- if(llave) keyItem=llave
+const TablaSecundaria = ({item,endPoint, llave='type'}) => {
   const [unidades, setUnidades] = useState({})
   useEffect(()=>{  
         FetchingDatos(endPoint,setUnidades)
@@ -13,11 +11,12 @@ const TablaSecundaria = ({item,endPoint, llave}) => {
   return (
     <div>
         {item}:{unidades.data!=[] && unidades?.data?.map((unidad,idx) =>
-        <Link to={`#`} key={idx}>
-         <li >{ unidad[keyItem]}</li>
+        <Link to={`/elemento/${unidad[llave]}`} key={idx}>
+         <li >{ unidad[llave]}</li>
          </Link>
          )}
-        <p>Total {item.toLowerCase()}: {unidades.count}</p> 
+        <p>Total {item.toLowerCase()}: {unidades.count}</p>
+     
     </div>
   )
 }

@@ -1,8 +1,10 @@
 import React from 'react'
+import {useParams} from 'react-router-dom'
 
-const Element = ({number=0}) => {
+const Element = () => { 
+  const elemento = useParams() 
   return (
-    <div>Element: {number}</div>
+    <div>Elemento: {elemento.id}</div>
   )
 }
 

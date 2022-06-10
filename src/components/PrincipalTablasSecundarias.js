@@ -12,9 +12,20 @@ const PrincipalTablasSecundarias = () => {
             <li><Link to='/expositions'>Expositions</Link></li>
         </ul>
     <Routes>
-        <Route path='/unidades' exact  element={<TablaSecundaria item='Unidades' endPoint='unidad'/>}/>
-        <Route path='/estatus' exact element={<TablaSecundaria item='Estatus' endPoint='estatus'/>}/>
-        <Route path='/expositions' exact element={<TablaSecundaria item='Expositions' endPoint='expositions' llave='name'/>}/>    
+        <Route 
+        path='/unidades'   
+        element={<TablaSecundaria item='Unidades' endPoint='unidad'/>}
+        />
+        <Route 
+        path='/estatus'  
+        element={<TablaSecundaria item='Estatus' endPoint='estatus'/>}
+        />
+        <Route 
+        path='/expositions'
+        element={<TablaSecundaria item='Expositions' endPoint='expositions' llave='name'/>}
+        />           
+        <Route path='/elemento/:id' element={<Element/>}/>  
+      
     </Routes>
 
 
