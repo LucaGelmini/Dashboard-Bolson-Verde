@@ -1,22 +1,31 @@
 import React,{useState,useEffect} from 'react'
 import {useParams} from 'react-router-dom'
-import { FetchingDatos } from '../js/FetchingDatos'
 
-const Element = ({item}) => { 
-  const elemento = useParams() 
+
+const Element = ({item, llave='type'}) => { 
  
-  let listaMostrar = item.find(dato => dato.type === elemento.id)
+  const elemento = useParams() ; 
+  let listaMostrar = item.find(dato =>{  
+      return dato[llave] === elemento.id  
+  })
   console.log(listaMostrar);
-
-
+  const impresionDatos = ()=>{
+    if(llave=='type'){
+      return listaMostrar.products.map((product,idx)=> <p key={idx}>{product.name?? 'No hay productos'}</p>)
+    }else{
+      return listaMostrar.cartsOrders.map((product,idx)=>{ 
+      return (
+        <div key={idx}>
+          <p >Total productos: {product.total}</p>
+          <p >User id: {product.user_id}</p>
+        </div>
+      )
+    })
+    }
+  }
   return (
     <div>Elementos: 
-       {listaMostrar?.products.map(product=>{
-        return(
-          <p>{product.name}</p>
-        )
-       })}
-    
+       {impresionDatos()}    
     </div>
   )
 }

@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {Routes, Route,Link} from 'react-router-dom'
 import { FetchingDatos } from '../js/FetchingDatos'
-import Element from './Element'
 import TablaSecundaria from './TablasSecundaria'
 
 const PrincipalTablasSecundarias = () => {

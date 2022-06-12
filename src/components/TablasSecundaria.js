@@ -17,7 +17,7 @@ const informacion = unidades
 })}
         <p>Total {item.toLowerCase()}: {informacion.count}</p>
           <Routes>
-            <Route path=':id' element={ <Element item={informacion?.data ??[]}/>}/>             
+            <Route path=':id' element={ <Element item={informacion?.data ??[]} llave={llave}/>}/>             
            
           </Routes>
      
