@@ -3,8 +3,10 @@ export const FetchingDatos = (endPoint,setItem) =>{
     .then(response =>{          
         return response.json()
     })
-    .then(respuesta =>{         
-        setItem(respuesta)
+    .then(respuesta =>{  
+           
+        // setItem(respuesta)
+        return respuesta
     })
     .catch(console.log)
 }
