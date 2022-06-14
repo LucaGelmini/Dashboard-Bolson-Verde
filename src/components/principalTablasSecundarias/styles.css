@@ -11,22 +11,31 @@ html{
    grid-template-columns: repeat(6,1fr);
 }
 .contenedor-principal-tablas-secundarias .links-tablas{
-    grid-column: 1/7;
+    grid-column: 1/9;
     grid-row:1/3;
-    display: grid;
+    display: flex;
     grid-template-columns: repeat(8,1fr);
     padding: 1rem;
+    flex-direction: column;
 }
 .link-unidades{
-    grid-column: 1/3;
+    grid-column: 1/15;
     grid-row: 1/2;
 }
 .link-estatus{
-    grid-column: 4/6;
+    grid-column: 4/15;
     grid-row: 1/2;
 }
 .link-expositions{
-    grid-column: 7/9;
+    grid-column: 7/15;
+    grid-row: 1/2;
+}
+.link-payments{
+    grid-column: 10/15;
+    grid-row: 1/2;
+}
+.link-categories{
+    grid-column: 13/15;
     grid-row: 1/2;
 }
 .contenedor-principal-tablas-secundarias .links-tablas li{
@@ -47,6 +56,6 @@ html{
     border-bottom: 1px solid #D84D09;
 }
 .contenedor-principal-tablas-secundarias .links-tablas li .imagen{
-    width: 24vw;
-    height: 36vh;
+    width: 100vw;
+    height: 40vh;
 }

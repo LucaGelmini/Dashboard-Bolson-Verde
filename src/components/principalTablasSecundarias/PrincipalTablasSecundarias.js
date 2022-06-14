@@ -18,8 +18,7 @@ const PrincipalTablasSecundarias = () => {
     const data = Promise.all([fetchUnidades,fetchEstatus,fetchExpositions,fetchPayments,fetchCategories,fetchRoles])
     data.then(res =>{
       setDatos(res)
-      const cosojsoneado = window.sessionStorage.setItem('data',JSON.stringify(res))
-      console.log(cosojsoneado);
+    window.sessionStorage.setItem('data',JSON.stringify(res))
       })
   },[])
    
@@ -89,10 +88,10 @@ const PrincipalTablasSecundarias = () => {
           path='/categories/*'
           element={<TablaSecundaria item='Categories' llave='name' position={4}/>}
           />     
-           <Route 
+           {/* <Route 
           path='/roles/*'
           element={<TablaSecundaria item='Roles' llave='name' position={5}/>}
-          />     
+          />      */}
       </Routes>
     </div>
   )
