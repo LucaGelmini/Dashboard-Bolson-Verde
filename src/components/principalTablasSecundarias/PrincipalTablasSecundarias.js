@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {Routes, Route,Link} from 'react-router-dom'
-import { FetchingDatos } from '../../js/FetchingDatos'
+import { FetchingDatos } from '../../utils/FetchingDatos'
 import TablaSecundaria from '../tablasSecundarias/TablasSecundaria'
 import './styles.css'
 
