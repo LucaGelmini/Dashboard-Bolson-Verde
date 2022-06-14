@@ -34,19 +34,3 @@ grid-template-columns: repeat(4,1fr);
 .links-principales{
     grid-column:1/3;
 }
-.regresar{
-    position: absolute;
-    top: 2rem;
-    right: 1rem;
-    display: flex;
-    text-decoration: none;
-    color:#D84D09 ;
-    border: 1px solid #D84D09;
-    border-radius: 1rem;
-    padding:0.5rem;
-    width: 13rem;
-    font-size: 2.4rem;
-}
-.flecha{
-    width: 3rem;
-}
