@@ -8,6 +8,8 @@
     display: flex;
     justify-content: space-around;
     padding: 0;
+    width: 80vw;
+    flex-wrap: wrap;
 }
 .contenedor-principal-tablas-secundarias .links-tablas li{
     list-style: none;
@@ -19,13 +21,12 @@
 .contenedor-principal-tablas-secundarias .links-tablas li .link{
     color:rgb(182, 37, 245);
     text-decoration: none;
-
 }
 .contenedor-principal-tablas-secundarias .links-tablas li .texto{
     position: absolute;
     left: 0.5rem;
 }
 .contenedor-principal-tablas-secundarias .links-tablas li .imagen{
-    width: 100%;
-    height: 100%;
+    width: 24vw;
+    height: 36vh;
 }
