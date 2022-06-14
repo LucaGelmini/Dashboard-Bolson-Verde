@@ -1,0 +1,31 @@
+.contenedor-principal-tablas-secundarias{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap:3rem;
+}
+.contenedor-principal-tablas-secundarias .links-tablas{
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+}
+.contenedor-principal-tablas-secundarias .links-tablas li{
+    list-style: none;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: rgb(0 0 0 / 16%) 0px 10px 36px 0px, rgb(0 0 0 / 6%) 0px 0px 0px 1px;
+   overflow: hidden;
+}
+.contenedor-principal-tablas-secundarias .links-tablas li .link{
+    color:rgb(182, 37, 245);
+    text-decoration: none;
+
+}
+.contenedor-principal-tablas-secundarias .links-tablas li .texto{
+    position: absolute;
+    left: 0.5rem;
+}
+.contenedor-principal-tablas-secundarias .links-tablas li .imagen{
+    width: 100%;
+    height: 100%;
+}

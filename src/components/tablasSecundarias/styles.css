@@ -1,0 +1,25 @@
+.contenedor-lista-tabla{
+   display: flex;
+   justify-content: space-around;
+}
+.contenedor-lista-tabla .item{
+    align-self: top;
+    font-size: 24px;
+    color: rgb(182, 37, 245);
+}
+.contenedor-lista-tabla .lista-item{
+    border-bottom: 1px solid red;
+}
+.item-tabla{
+    list-style: none;
+    text-align: left;
+}
+.link-lista-tabla{
+    text-decoration: none;
+    color:green;
+}
+.contenedor-lista-principal{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
