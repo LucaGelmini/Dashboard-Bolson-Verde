@@ -56,6 +56,6 @@ html{
     border-bottom: 1px solid #D84D09;
 }
 .contenedor-principal-tablas-secundarias .links-tablas li .imagen{
-    width: 100vw;
-    height: 40vh;
+    width: 60vw;
+    height: 60vh;
 }
