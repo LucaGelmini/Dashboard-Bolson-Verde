@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react'
 import {Link,Routes,Route} from 'react-router-dom'
-import { FetchingDatos } from '../js/FetchingDatos'
 import Element from './Element'
 
 const TablaSecundaria = ({item, unidades,llave='type'}) => {
@@ -9,8 +8,7 @@ const informacion = unidades
 
   return (
     <div>
-        {item}:{informacion.data!=[] && informacion?.data?.map((unidad,idx) =>{
-          
+        {item}:{informacion.data!==[] && informacion?.data?.map((unidad,idx) =>{
         return (<Link to={`/${item.toLowerCase()}/${unidad[llave]}`} key={idx}>
          <li >{ unidad[llave]}</li>
          </Link>)

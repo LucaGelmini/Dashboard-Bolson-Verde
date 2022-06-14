@@ -10,7 +10,7 @@ const Element = ({item, llave='type'}) => {
   })
   console.log(listaMostrar);
   const impresionDatos = ()=>{
-    if(llave=='type'){
+    if(llave==='type'){
       return listaMostrar.products.map((product,idx)=> <p key={idx}>{product.name?? 'No hay productos'}</p>)
     }else{
       return listaMostrar.cartsOrders.map((product,idx)=>{ 
