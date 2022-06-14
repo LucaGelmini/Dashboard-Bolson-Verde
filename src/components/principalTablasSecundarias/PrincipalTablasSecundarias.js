@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {Routes, Route,Link} from 'react-router-dom'
 import { FetchingDatos } from '../../utils/FetchingDatos'
 import TablaSecundaria from '../tablasSecundarias/TablasSecundaria'
+import LinksRedireccion from './LinksRedireccion'
 import './styles.css'
 
 const PrincipalTablasSecundarias = () => {
@@ -24,7 +25,7 @@ const PrincipalTablasSecundarias = () => {
    
   return (
     <div className='contenedor-principal-tablas-secundarias'>
-        <ul className='links-tablas'>
+        {/* <ul className='links-tablas'>
             <li className='link-unidades'>
               <Link to='/unidades' className='link'>
                 <p className='texto'>Unidades</p>
@@ -61,8 +62,13 @@ const PrincipalTablasSecundarias = () => {
                <img className='imagen'alt='roles' src='https://definicion.de/wp-content/uploads/2010/01/rol.png'/>
               </Link>
             </li>
-        </ul>
+        </ul> */}
       <Routes className='rutas'>
+          <Route
+          exact
+            path='/'   
+            element={<LinksRedireccion/>}
+          />
           <Route 
           path='/unidades/*'   
           element={<TablaSecundaria item='Unidades' position={0}/>}
