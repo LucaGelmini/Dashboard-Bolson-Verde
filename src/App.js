@@ -1,8 +1,11 @@
 import Products from './components/products';
+import {BrowserRouter} from 'react-router-dom'
 import './App.css';
+import PrincipalTablasSecundarias from './components/principalTablasSecundarias/PrincipalTablasSecundarias';
 
 function App() {
   return (
+    <BrowserRouter>
     <div className="App">
 
     <h1>
@@ -14,7 +17,9 @@ function App() {
 
 
 
+        <PrincipalTablasSecundarias/>       
     </div>
+    </BrowserRouter>
   );
 }
 
