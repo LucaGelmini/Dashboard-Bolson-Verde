@@ -28,7 +28,7 @@ const Element = ({item, llave='type'}) => {
     }
   }
   return (
-    <div className='contenedor-boxes'>Elementos: 
+    <div className='contenedor-boxes'><p className='titulo'>Elementos: </p>
        {impresionDatos()}    
     </div>
   )
