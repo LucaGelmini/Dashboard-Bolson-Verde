@@ -22,11 +22,11 @@ const TablaSecundaria = ({item,llave='type', position}) => {
 })}
         <p className='lista-item'>Total {item.toLowerCase()}: {informacion.count}</p>
         </div>
-          <Routes>
+ 
+      </div>
+      <Routes>
             <Route path=':id' element={ <Element item={informacion?.data ??[]} llave={llave}/>}/>                        
           </Routes>
-      </div>
-     
     </div>
   )
 }
