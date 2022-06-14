@@ -10,8 +10,7 @@ const Element = ({item, llave='type'}) => {
       return dato[llave] === elemento.id  
   })
 
-  const impresionDatos = ()=>{
-   
+  const impresionDatos = ()=>{   
     if(llave=='type'){
        let arr=listaMostrar.products.map(product=>{
         console.log(product);
@@ -25,14 +24,11 @@ const Element = ({item, llave='type'}) => {
         titulo:'Stock'
       }
     }else{
-      let arr=listaMostrar.cartsOrders.map((product,idx)=>{ 
-      
-        return {
-         
+      let arr=listaMostrar.cartsOrders.map((product,idx)=>{      
+        return {         
           label:product.id,
           data:product.total
         }
-
     })
     return{
       arr,
