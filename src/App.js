@@ -1,12 +1,14 @@
-import logo from './logo.svg';
+import {BrowserRouter} from 'react-router-dom'
 import './App.css';
-import TablaSecundaria from './components/Units';
+import PrincipalTablasSecundarias from './components/principalTablasSecundarias/PrincipalTablasSecundarias';
 
 function App() {
   return (
+    <BrowserRouter>
     <div className="App">
-        <TablaSecundaria item='Unidades' endPoint='unidad'/>
+        <PrincipalTablasSecundarias/>       
     </div>
+    </BrowserRouter>
   );
 }
 
