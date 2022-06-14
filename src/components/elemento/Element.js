@@ -13,7 +13,6 @@ const Element = ({item, llave='type'}) => {
   const impresionDatos = ()=>{   
     if(llave=='type'){
        let arr=listaMostrar.products.map(product=>{
-        console.log(product);
         return {          
           label:product.name,
           data:product.stock
@@ -23,7 +22,21 @@ const Element = ({item, llave='type'}) => {
         arr,
         titulo:'Stock'
       }
-    }else{
+    }
+    if(llave =='name'){
+      let arr=listaMostrar.products.map(product=>{
+       console.log(product)
+       return {
+         label:product.name,
+         data:product.stock
+       }
+     })
+     return{
+       arr,
+       titulo:'Stock'
+     }
+   }
+    else{
       let arr=listaMostrar.cartsOrders.map((product,idx)=>{      
         return {         
           label:product.id,
@@ -36,7 +49,6 @@ const Element = ({item, llave='type'}) => {
     }
     }
   }
-
 
   return (
     <div className='contenedor-boxes'><p className='titulo'>Gráfica: </p> 
