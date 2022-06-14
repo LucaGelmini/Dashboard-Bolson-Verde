@@ -10,9 +10,6 @@ function App() {
     </h1>
     <main className='dashboard'>
       <section className='dash-component-container'><Products/></section>
-      {/* <section className='dash-component-container'><Products/></section>
-      <section className='dash-component-container'><Products/></section>
-      <section className='dash-component-container'><Products/></section> */}
     </main>
 
 
