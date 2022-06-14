@@ -13,7 +13,7 @@ const TablaSecundaria = ({item,llave='type', position}) => {
     <div className='contenedor-lista-tabla'>
       <p className='item'>{item}:</p>
       <div className='contenedor-lista-principal'>
-        <div>
+        <div className='links-principales'>
         {informacion.data!=[] && informacion?.data?.map((unidad,idx) =>{
           
         return (<Link to={`/${item.toLowerCase()}/${unidad[llave]}`} key={idx} className='link-lista-tabla'>
@@ -22,11 +22,11 @@ const TablaSecundaria = ({item,llave='type', position}) => {
 })}
         <p className='lista-item'>Total {item.toLowerCase()}: {informacion.count}</p>
         </div>
-          <Routes>
+ 
+      </div>
+      <Routes>
             <Route path=':id' element={ <Element item={informacion?.data ??[]} llave={llave}/>}/>                        
           </Routes>
-      </div>
-     
     </div>
   )
 }

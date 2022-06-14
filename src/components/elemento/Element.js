@@ -1,6 +1,7 @@
 import React from 'react'
 import {useParams} from 'react-router-dom'
 import './style.css'
+import BarraChart from '../comunes/graficas/BarraChart'
 
 const Element = ({item, llave='type'}) => { 
  
@@ -10,26 +11,44 @@ const Element = ({item, llave='type'}) => {
   })
 
   const impresionDatos = ()=>{
-    console.log(listaMostrar);
-    if(llave !=='type'){
-      return listaMostrar.products.map((product,idx)=> <p className='item-lista' key={idx}>{product.name?? 'No hay productos'}</p>)
+   
+    if(llave=='type'){
+       let arr=listaMostrar.products.map(product=>{
+        console.log(product);
+        return {          
+          label:product.name,
+          data:product.stock
+        }
+      })
+      return{
+        arr,
+        titulo:'Stock'
+      }
     }else{
-      return listaMostrar.cartsOrders.map((product,idx)=>{ 
-      return (
-        <div key={idx} className='box-items'>
-          <p className='item-lista' >Orden numero: {product.id}</p>
-          <p className='item-lista' >User id: {product.user_id}</p>
-          <p className='item-lista' >Payment id: {product.payment_id}</p>
-          <p className='item-lista' >Fecha actualización: {product.update_date}</p>
-          <p className='item-lista' >Total productos: {product.total}</p>
-        </div>
-      )
+      let arr=listaMostrar.cartsOrders.map((product,idx)=>{ 
+      
+        return {
+         
+          label:product.id,
+          data:product.total
+        }
+
     })
+    return{
+      arr,
+      titulo:'Total'
+    }
     }
   }
+
+
   return (
-    <div className='contenedor-boxes'>Elementos: 
-       {impresionDatos()}    
+    <div className='contenedor-boxes'><p className='titulo'>Gráfica: </p> 
+      <BarraChart 
+      labels={impresionDatos().arr.map(item=>item.label)} 
+      titulo={impresionDatos().titulo}
+      datos={impresionDatos().arr.map(item=>item.data)}
+      />
     </div>
   )
 }

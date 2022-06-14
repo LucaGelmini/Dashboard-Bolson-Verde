@@ -1,16 +1,21 @@
 .item-lista{
     text-align: left;
+    font-size: 1.4rem;
 }
 .contenedor-boxes{
+    grid-column: 1/7;
     display: flex;
     flex-direction: column;
     gap:0.5rem;
     padding: 2rem;
-    overflow-y: auto;
-    height: 100vh;
+ 
 }
 .box-items{
     box-shadow: rgb(0 0 0 / 16%) 0px 10px 36px 0px, rgb(0 0 0 / 6%) 0px 0px 0px 1px;
     border-radius: 10px;
     padding: 0.5rem;
+ 
+}
+.titulo{
+    font-size: 2rem;
 }
