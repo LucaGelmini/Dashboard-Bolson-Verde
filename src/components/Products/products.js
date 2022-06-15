@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Plot from "react-plotly.js"
 import ProductsPlotUtilities from '../../utils/productsPlotUtilities'
-
+import './styles.css'
 
 
 function Products() {
@@ -103,36 +103,45 @@ function Products() {
             fns.mostExpensivesUpdatePage(setMostExpensives)
         }
     }
-
+    let plotTitle =
+        plotOptions === 'bestSellers'?
+        `Los más vendidos del nro ${Number(localStorage.productsPlotPage)*5+1} al ${(Number(localStorage.productsPlotPage)+1)*5}` :
+        plotOptions === 'mostExpensives'?
+        `Los más caros del nro ${Number(localStorage.productsPlotPage)*5+1} al ${(Number(localStorage.productsPlotPage)+1)*5}` :
+            'Tabla'
+    
     return (
         <div className="products">
-        
-        <p>Productos más vendidos</p>
-        <div className="barChart">
-        <Plot 
-        data={[plotlyData(plotOptions)]}
-        layout={{
-            width: 500,
-            height: 300,
-            title: `Del nro ${Number(localStorage.productsPlotPage)*5+1} al ${(Number(localStorage.productsPlotPage)+1)*5}`
-            }}/>
-        <button onClick={prevPage}>Anteriores</button>
-        <button onClick={nextPage}>Siguientes</button>
-        </div>
-        
-        
-        <form onChange={e => {localStorage.productPlotOption = e.target.value; setPlotOptions(localStorage.productPlotOption)}}>
-            <label htmlFor="bestSellersRadioButton">Los más vendidos</label>
-            <input type={'radio'} name='products' id="bestSellersRadioButton" value={'bestSellers'} defaultChecked/>
-            <label htmlFor="mostExpensivesRadioButton">Los más caros</label>
-            <input type={'radio'} name='products' id="mostExpensivesRadioButton" value={'mostExpensives'}/>
-            <label htmlFor="ctotalProductsRadioButton">Total de productos</label>
-            <input type={'radio'} name='products' id="totalProductsRadioButton" value={'total'}/>
-        </form>
+            
+            <h2>Productos</h2>
+            <div className="barChart">
+                <Plot 
+                data={[plotlyData(plotOptions)]}
+                layout={{
+                    width: 800,
+                    height: 400,
+                    title: plotTitle
+                    }}/>
+                <div className="products-next-prev">
+                <button onClick={prevPage}>Anteriores</button>
+                <button onClick={nextPage}>Siguientes</button>
 
-  
+                </div>
+            </div>
+            
+            
+            <form onChange={e => {localStorage.productPlotOption = e.target.value; setPlotOptions(localStorage.productPlotOption)}}>
+                <label htmlFor="bestSellersRadioButton">Los más vendidos</label>
+                <input type={'radio'} name='products' id="bestSellersRadioButton" value={'bestSellers'} defaultChecked/>
+                <label htmlFor="mostExpensivesRadioButton">Los más caros</label>
+                <input type={'radio'} name='products' id="mostExpensivesRadioButton" value={'mostExpensives'}/>
+                <label htmlFor="ctotalProductsRadioButton">Total de productos</label>
+                <input type={'radio'} name='products' id="totalProductsRadioButton" value={'total'}/>
+            </form>
+
     
-    
+        
+        
         </div>
     );
 }
