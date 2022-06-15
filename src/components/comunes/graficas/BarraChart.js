@@ -38,7 +38,7 @@ const BarraChart = ({
         responsive:true
       }
   return (
-    <Bar data={data} opciones={opciones}/>
+    <Bar width={400} data={data} opciones={opciones}/>
   )
 }
 

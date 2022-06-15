@@ -9,6 +9,8 @@ import SideBar from './components/sidebar';
 import TopBar from './components/TopBar';
 import { Route, Routes, BrowserRouter  } from 'react-router-dom';
 import Products from './components/Products/products'
+import PrincipalTablasSecundarias from './components/principalTablasSecundarias/PrincipalTablasSecundarias';
+ import './index.css'
 
 function App() {
    
@@ -18,6 +20,7 @@ function App() {
          <div className="App" >
             <div className='sideBar-firstPanel-container'>
                <SideBar/>
+               
                <div className='topBar-cardContainer'>
                    <TopBar/>
                    <div className='cardsContainer'>
@@ -27,6 +30,8 @@ function App() {
                            <Route path='/' element={<CartOrderData/>} /> 
                            <Route path='/users' element={<UsersData/>} />
                            <Route path='/products' element={<Products/>} />
+                           <Route path='/secundarias/*' element={<PrincipalTablasSecundarias/>} />
+                           
 		               	      <Route path='*' element={<NotFound/>} />
                        </Routes>
                    </div>

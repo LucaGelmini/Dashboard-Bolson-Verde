@@ -8,8 +8,13 @@ body {
   background-color: rgba(163, 150, 150, 0.1);
   
 }
+html{
+  font-size: 62.5%;
+}
 
- 
+ .App{
+  grid-template-columns: repeat(13, 1fr);
+ }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -21,8 +26,9 @@ code {
 .cardsContainer{
 display: flex;
 justify-content:space-around;
-margin-top: 10px;  
+/* margin-top: 10px;   */
 width: 100%;
+/* height: 100%; */
 }
 .card{
   background: white;
@@ -76,9 +82,9 @@ width: 100%;
 }
 
 .sideBar-firstPanel-container{
-  display: flex; 
-  width: 100%;
-  height: 100vh;
+  display: grid;
+grid-template-columns: repeat(13,1fr);
+grid-template-rows: repeat(6,11rem);
 }
 
 .cards-container{
@@ -181,6 +187,7 @@ ul {
   justify-content: flex-start;
 }
 .navbar {
+  
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -224,6 +231,8 @@ ul {
 }
 
 .navbar-nav {
+  grid-column:1/3;
+  grid-row:1/7;
   display: flex;
   flex-direction: column;
   padding-left: 0;
@@ -283,7 +292,10 @@ span {
 }
 
 .topBar-cardContainer{
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  grid-column: 3/14;
+  grid-row: 1/7;
 }
 
 .sidebar-divider my-0 {
