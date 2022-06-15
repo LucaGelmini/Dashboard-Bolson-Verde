@@ -23,19 +23,19 @@ const Element = ({item, llave='type'}) => {
         titulo:'Stock'
       }
     }
-    if(llave =='name'){
-      let arr=listaMostrar.products.map(product=>{
-       console.log(product)
-       return {
-         label:product.name,
-         data:product.stock
-       }
-     })
-     return{
-       arr,
-       titulo:'Stock'
-     }
-   }
+  //   if(llave =='name'){
+  //     let arr=listaMostrar.products.map(product=>{
+  //      console.log(product)
+  //      return {
+  //        label:product.name,
+  //        data:product.stock
+  //      }
+  //    })
+  //    return{
+  //      arr,
+  //      titulo:'Stock'
+  //    }
+  //  }
     else{
       let arr=listaMostrar.cartsOrders.map((product,idx)=>{      
         return {         
