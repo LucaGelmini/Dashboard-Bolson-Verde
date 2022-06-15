@@ -1,4 +1,3 @@
-
 class ProductsPlotUtilities{
     bestSellersPlotData(bs){   
         console.log(bs)
@@ -20,14 +19,38 @@ class ProductsPlotUtilities{
             }
         }
         return barChartData
-    }me
-    moreExpensivesPlotData(me){   
-        console.log('CAROOOS')
-        console.log(me[0])
+    }
+    bestSellersUpdatePage(hook){
+        fetch('http://localhost:3001/api/products/best-sellers?' +
+        new URLSearchParams({
+            page: localStorage.productsPlotPage ? localStorage.productsPlotPage : 0
+
+        }))
+        .then(res => res.json())
+        .then(data => {
+            hook(data)
+            localStorage.bestSellers =data.data;
+
+        });
+    }
+    mostExpensivesUpdatePage(hook){
+        fetch('http://localhost:3001/api/products/most-expensives?' +
+        new URLSearchParams({
+            page: localStorage.productsPlotPage ? localStorage.productsPlotPage : 0
+
+        }))
+        .then(res => res.json())
+        .then(data => {
+            hook(data)
+            localStorage.mostExpensives =data.data;
+
+        });
+    }
+    mostExpensivesPlotData(me){   
+        console.log(me)
         let barChartData = {
             x: me.map(product => product.name),
             y: me.map(product => {
-                console.log('Esto: ' + product.price)
                 return Number(product.price); 
             }),
             type: 'bar',

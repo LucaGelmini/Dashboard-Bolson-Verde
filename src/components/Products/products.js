@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Plot from "react-plotly.js"
-import ProductsPlotUtilities from '../utils/productsPlotUtilities'
+import ProductsPlotUtilities from '../../utils/productsPlotUtilities'
 
 
 
 function Products() {
     const [products, setProducts] = useState([]);
-    const [moreExpensives, setMoreExpensives] = useState([]);
+    const [mostExpensives, setMostExpensives] = useState([]);
     const [bestSellers, setBestSellers] = useState([]);
     const [plotOptions, setPlotOptions] = useState([])
     localStorage.productPlotOption = 'bestSellers'
@@ -23,74 +23,68 @@ function Products() {
     }, []);
 
     useEffect(()=>{
-        fetch('http://localhost:3001/api/products/more-expensive?' +
+        fetch('http://localhost:3001/api/products/most-expensives?' +
         new URLSearchParams({
-            page: 0
+            page: localStorage.mostExpensivesPage ? localStorage.mostExpensivesPage : 0
         }))
         .then(res => res.json())
-        .then(data => setMoreExpensives(data))
-    }, []);
+        .then(data =>{
+            setMostExpensives(data)
+            localStorage.mostExpensives =data.data;
+        } )
+    }, [localStorage.mostExpensives ? localStorage.mostExpensives : null]);
 
     useEffect(()=>{
         fetch('http://localhost:3001/api/products/best-sellers?' +
         new URLSearchParams({
-            page: localStorage.bestSellersPage ? localStorage.bestSellersPage : 0
+            page: localStorage.productsPlotPage ? localStorage.productsPlotPage : 0
 
         }))
         .then(res => res.json())
         .then(data => {
             setBestSellers(data)
             localStorage.bestSellers =data.data;
-            localStorage.bestSellersPage = 0;
+            localStorage.productsPlotPage = 0;
         })
-    }, [localStorage.bestSellers ? localStorage.bestSellers : []]);
+    }, [localStorage.bestSellers ? localStorage.bestSellers : null]);
 
     function plotlyData(option = 'bestSellers'){
         let fns = new ProductsPlotUtilities() //funciones
-        console.log(option)
         if(option === 'bestSellers' && bestSellers.data){
             return fns.bestSellersPlotData(bestSellers.data)
         }
-        if(option === 'mostExpensives' && moreExpensives.data){
-            return fns.moreExpensivesPlotData(moreExpensives.data)
+        if(option === 'mostExpensives' && mostExpensives.data){
+            return fns.mostExpensivesPlotData(mostExpensives.data)
     }
     }
-    
-    function nextPage(){
-            localStorage.bestSellersPage = Number(localStorage.bestSellersPage) + 1;
-            console.log('Página: ' + localStorage.bestSellersPage)
 
-                fetch('http://localhost:3001/api/products/best-sellers?' +
-                new URLSearchParams({
-                    page: localStorage.bestSellersPage ? localStorage.bestSellersPage : 0
-        
-                }))
-                .then(res => res.json())
-                .then(data => {
-                    setBestSellers(data)
-                    localStorage.bestSellers =data.data;
-        
-                });
+
+    function nextPage(){
+        let fns = new ProductsPlotUtilities()
+            localStorage.productsPlotPage = Number(localStorage.productsPlotPage) + 1;
+            console.log('Página: ' + localStorage.productsPlotPage + '\b opcion: '+ plotOptions)
+                if(plotOptions=='bestSellers'){
+                    fns.bestSellersUpdatePage(setBestSellers)
+                }
+                if(plotOptions=='mostExpensives'){
+                    fns.mostExpensivesUpdatePage(setMostExpensives)
+                }
     }
 
     function prevPage(){
-        localStorage.bestSellersPage = Number(localStorage.bestSellersPage) - 1;
-        console.log('Página: ' + localStorage.bestSellersPage);
-        if(localStorage.bestSellersPage < 0){
-            localStorage.bestSellersPage = 0;
+        let fns = new ProductsPlotUtilities()
+        localStorage.productsPlotPage = Number(localStorage.productsPlotPage) - 1;
+        console.log('Página: ' + localStorage.productsPlotPage);
+        if(localStorage.productsPlotPage < 0){
+            localStorage.productsPlotPage = 0;
             alert('Ya es la primer página')
         }
-        fetch('http://localhost:3001/api/products/best-sellers?' +
-        new URLSearchParams({
-            page: localStorage.bestSellersPage ? localStorage.bestSellersPage : 0
-
-        }))
-        .then(res => res.json())
-        .then(data => {
-            setBestSellers(data)
-            localStorage.bestSellers =data.data;
-
-        })
+        if(plotOptions=='bestSellers'){
+            fns.bestSellersUpdatePage(setBestSellers)
+        }
+        if(plotOptions=='mostExpensives'){
+            fns.mostExpensivesUpdatePage(setMostExpensives)
+        }
     }
     // function updatePlotOptions(e){
     //     let option = e..target.value
@@ -109,7 +103,7 @@ function Products() {
         layout={{
             width: 500,
             height: 300,
-            title: `Del nro ${Number(localStorage.bestSellersPage)*5+1} al ${(Number(localStorage.bestSellersPage)+1)*5}`
+            title: `Del nro ${Number(localStorage.productsPlotPage)*5+1} al ${(Number(localStorage.productsPlotPage)+1)*5}`
             }}/>
         <button onClick={prevPage}>Anteriores</button>
         <button onClick={nextPage}>Siguientes</button>

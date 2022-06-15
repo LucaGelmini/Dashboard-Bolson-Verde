@@ -1,4 +1,4 @@
-import Products from './components/products';
+import Products from './components/Products/products';
 import {BrowserRouter} from 'react-router-dom'
 import './App.css';
 import PrincipalTablasSecundarias from './components/principalTablasSecundarias/PrincipalTablasSecundarias';
