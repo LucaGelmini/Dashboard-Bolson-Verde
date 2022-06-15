@@ -5,7 +5,7 @@ import CartOrder from './CartOrder';
 import BestBuyerUser from './BestBuyerUser';
 import PaymentsType from './PaymentsType';
 import PaymentsStatus from './PaymentsStatus';
-import SideBar from './SideBar';
+ 
 
  
 function CartOrderKPI() {
