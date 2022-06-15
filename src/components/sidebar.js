@@ -46,7 +46,7 @@ function SideBar(){
 
                 {/*<!-- Nav Item - Charts -->*/}
                 <li className="nav-item">
-                 <a className="nav-link" href="/">
+                 <a className="nav-link" href="/products">
                         <i className="fas fa-fw fa-chart-area"></i>
                         <span><FontAwesomeIcon className='icon-sideBar' icon= {faAppleWhole} /> Products</span>
                         </a> 

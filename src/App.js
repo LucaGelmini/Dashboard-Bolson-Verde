@@ -5,10 +5,10 @@ import React from 'react';
 import UsersData from './components/UsersData';
 import CartOrderData from './components/CartOrderData';
 import NotFound from './components/NotFound';
-import SideBar from './components/Sidebar';
+import SideBar from './components/sidebar';
 import TopBar from './components/TopBar';
 import { Route, Routes, BrowserRouter  } from 'react-router-dom';
- 
+import Products from './components/Products/products'
 
 function App() {
    
@@ -26,7 +26,7 @@ function App() {
                        <Routes>
                            <Route path='/' element={<CartOrderData/>} /> 
                            <Route path='/users' element={<UsersData/>} />
-                           
+                           <Route path='/products' element={<Products/>} />
 		               	      <Route path='*' element={<NotFound/>} />
                        </Routes>
                    </div>
