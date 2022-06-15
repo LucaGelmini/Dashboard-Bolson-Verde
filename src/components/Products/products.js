@@ -17,12 +17,6 @@ function Products() {
         setPlotOptions(localStorage.productPlotOption)
     }, [])
 
-    useEffect(()=>{
-        fetch('http://localhost:3001/api/products')
-        .then(res => res.json())
-        .then(data =>setProducts(data))
-        
-    }, []);
 
     useEffect(()=>{
         fetch('http://localhost:3001/api/products')
