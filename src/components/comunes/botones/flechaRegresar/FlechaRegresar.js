@@ -13,5 +13,4 @@ const FlechaRegresar = ({ruta}) => {
     </Link>
   )
 }
-
 export default FlechaRegresar

@@ -23,7 +23,7 @@ const PrincipalTablasSecundarias = () => {
     <div className='contenedor-principal-tablas-secundarias'>
       <Routes className='rutas'>
           <Route
-          exact
+            exact
             path='/'   
             element={<LinksRedireccion/>}
           />
