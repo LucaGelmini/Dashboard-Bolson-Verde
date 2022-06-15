@@ -61,10 +61,10 @@ function SideBar(){
                 </li>
 
                 <li className="nav-item">
-                   <a className="nav-link" href="/">
+                   <Link className="nav-link" to="/secundarias">
                         <i className="fas fa-fw fa-table"></i>
                         <span><FontAwesomeIcon className='icon-sideBar' icon= {faEllipsis} /> Secondary</span>
-                        </a> 
+                        </Link> 
                 </li>
 
                 {/*<!-- Divider -->*/}

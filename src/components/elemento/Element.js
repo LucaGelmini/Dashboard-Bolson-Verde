@@ -3,7 +3,7 @@ import {useParams} from 'react-router-dom'
 import './style.css'
 import BarraChart from '../comunes/graficas/BarraChart'
 
-const Element = ({item, llave='type'}) => { 
+const Element = ({item, llave='type',db2}) => { 
  
   const elemento = useParams() ; 
   let listaMostrar = item.find(dato =>{  
@@ -23,19 +23,19 @@ const Element = ({item, llave='type'}) => {
         titulo:'Stock'
       }
     }
-    if(llave =='name'){
-      let arr=listaMostrar.products.map(product=>{
-       console.log(product)
-       return {
-         label:product.name,
-         data:product.stock
-       }
-     })
-     return{
-       arr,
-       titulo:'Stock'
-     }
-   }
+       if(llave =='name' && db2=='products'){
+         let arr=listaMostrar.products.map(product=>{
+          console.log(product)
+          return {
+            label:product.name,
+            data:product.stock
+          }
+        })
+        return{
+          arr,
+          titulo:'Stock'
+        }
+      }
     else{
       let arr=listaMostrar.cartsOrders.map((product,idx)=>{      
         return {         
@@ -49,10 +49,11 @@ const Element = ({item, llave='type'}) => {
     }
     }
   }
-
+console.log('entre a element');
   return (
-    <div className='contenedor-boxes'><p className='titulo'>Gráfica: </p> 
+    <div className='contenedor-boxes' >   
       <BarraChart 
+  
       labels={impresionDatos().arr.map(item=>item.label)} 
       titulo={impresionDatos().titulo}
       datos={impresionDatos().arr.map(item=>item.data)}
