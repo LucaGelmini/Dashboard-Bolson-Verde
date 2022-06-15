@@ -48,8 +48,8 @@ const PrincipalTablasSecundarias = () => {
           />     
            <Route 
           path='/categories/*'
-          element={<TablaSecundaria item='Categories' llave='name' position={4}/>}
-          />     
+          element={<TablaSecundaria item='Categories' llave='name' db2='products' position={4}/>}
+          />    
            {/* <Route 
           path='/roles/*'
           element={<TablaSecundaria item='Roles' llave='name' position={5}/>}

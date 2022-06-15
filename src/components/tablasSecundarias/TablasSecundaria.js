@@ -3,7 +3,7 @@ import {Link,Routes,Route} from 'react-router-dom'
 import Element from '../elemento/Element'
 import './styles.css'
 
-const TablaSecundaria = ({item,llave='type', position}) => {
+const TablaSecundaria = ({item,llave='type',db2, position}) => {
   const [informacion,setInformacion]=useState(JSON.parse(window.sessionStorage.getItem('data'))[position])  
   useEffect(()=>{  
     setInformacion(JSON.parse(window.sessionStorage.getItem('data'))[position])
@@ -30,7 +30,7 @@ const TablaSecundaria = ({item,llave='type', position}) => {
         </div> 
       </div>
       <Routes>
-        <Route path=':id' element={ <Element item={informacion?.data ??[]} llave={llave}/>}/>                        
+        <Route path=':id' element={ <Element item={informacion?.data ??[]} llave={llave} db2={db2}/>}/>                        
       </Routes>
     </div>
   )

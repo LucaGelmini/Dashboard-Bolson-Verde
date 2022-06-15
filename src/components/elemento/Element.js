@@ -3,7 +3,7 @@ import {useParams} from 'react-router-dom'
 import './style.css'
 import BarraChart from '../comunes/graficas/BarraChart'
 
-const Element = ({item, llave='type'}) => { 
+const Element = ({item, llave='type',db2}) => { 
  
   const elemento = useParams() ; 
   let listaMostrar = item.find(dato =>{  
@@ -23,19 +23,19 @@ const Element = ({item, llave='type'}) => {
         titulo:'Stock'
       }
     }
-  //   if(llave =='name'){
-  //     let arr=listaMostrar.products.map(product=>{
-  //      console.log(product)
-  //      return {
-  //        label:product.name,
-  //        data:product.stock
-  //      }
-  //    })
-  //    return{
-  //      arr,
-  //      titulo:'Stock'
-  //    }
-  //  }
+       if(llave =='name' && db2=='products'){
+         let arr=listaMostrar.products.map(product=>{
+          console.log(product)
+          return {
+            label:product.name,
+            data:product.stock
+          }
+        })
+        return{
+          arr,
+          titulo:'Stock'
+        }
+      }
     else{
       let arr=listaMostrar.cartsOrders.map((product,idx)=>{      
         return {         
