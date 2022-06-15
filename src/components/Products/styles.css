@@ -1,0 +1,16 @@
+.products{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.barChart{
+  text-align: center;
+}
+
+.js-plotly-plot{
+  box-shadow: 12px 12px 2px 1px #333;
+  margin-bottom: 20px;
+}
