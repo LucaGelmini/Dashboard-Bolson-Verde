@@ -51,7 +51,7 @@ const Element = ({item, llave='type'}) => {
   }
 console.log('entre a element');
   return (
-    <div className='contenedor-boxes'>   
+    <div className='contenedor-boxes' >   
       <BarraChart 
   
       labels={impresionDatos().arr.map(item=>item.label)} 
