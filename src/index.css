@@ -238,6 +238,7 @@ ul {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+  height: 100vw;
 }
  
 .topbar.navbar-light .navbar-nav .nav-item .nav-link {
