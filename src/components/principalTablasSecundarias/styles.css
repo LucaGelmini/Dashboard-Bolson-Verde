@@ -7,8 +7,9 @@ html{
 
 }
 .contenedor-principal-tablas-secundarias{
-   display: grid;
-   grid-template-columns: repeat(6,1fr);
+    width: 100%;
+    height: 100%;
+
 }
 .contenedor-principal-tablas-secundarias .links-tablas{
     grid-column: 1/7;
